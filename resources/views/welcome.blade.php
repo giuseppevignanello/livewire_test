@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @livewireStyles
+
     <title>Document</title>
 </head>
 
 <body>
 
     <h1>Prova</h1>
-    <a href="{{ url('/test') }}" wire:navigate>Test</a>
+    <livewire:test />
 
-
-    @livewireScripts
 </body>
 
 </html>
