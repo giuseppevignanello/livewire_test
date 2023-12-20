@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Tasks extends Component
+class Task extends Component
 {
 
     public $tasks = [];
@@ -12,16 +12,14 @@ class Tasks extends Component
 
     public function mount()
     {
-        $this->tasks = ['First Task', 'Second Task'];
     }
-
     public function add()
     {
         $this->tasks[] = $this->task;
-        $this->reset('task');
     }
+
     public function render()
     {
-        return view('livewire.tasks');
+        return view('livewire.task');
     }
 }
