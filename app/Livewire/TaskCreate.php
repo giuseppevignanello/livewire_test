@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Livewire\Attributes\Rule;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -11,15 +12,21 @@ class TaskCreate extends Component
 
     public $tasks = [];
 
+    #[Rule('required | min:3 | max:255')]
     public $task_title = '';
+    #[Rule('required | min:3 | max:500')]
     public $task_description = '';
 
+    #[Rule('required')]
     public $task_status = 'new';
 
+    #[Rule('required')]
     public $task_deadline = '';
 
     public function add()
     {
+        $this->validate();
+
         //get authenticated user
         $user = Auth::user();
 
