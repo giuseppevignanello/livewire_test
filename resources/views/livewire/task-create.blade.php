@@ -5,27 +5,27 @@
             <div>
                 <div class="flex flex-col">
                     <label for="title">Title</label>
-                    <input class="rounded-md bg-gray-100" id="title" type="text" wire:model='task_title'>
-                    @error('task_title')
+                    <input class="rounded-md bg-gray-100" id="title" type="text" wire:model='form.task_title'>
+                    @error('form.task_title')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="flex flex-col">
                     <label for="status">Status</label>
-                    <select class="rounded-md bg-gray-100" id="status" wire:model='task_status'>
+                    <select class="rounded-md bg-gray-100" id="status" wire:model='form.task_status'>
                         @foreach (\App\Enums\Status::cases() as $status)
                             <option value="{{ $status->value }}">{{ $status->name }}</option>
                         @endforeach
 
                     </select>
-                    @error('task_status')
+                    @error('form.task_status')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="flex flex-col">
                     <label for="deadline">Deadline</label>
-                    <input class="rounded-md bg-gray-100" id="deadline" type="date" wire:model='task_deadline'>
-                    @error('task_deadline')
+                    <input class="rounded-md bg-gray-100" id="deadline" type="date" wire:model='form.task_deadline'>
+                    @error('form.task_deadline')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
@@ -33,8 +33,9 @@
             <div>
                 <div class="flex flex-col">
                     <label for="description">Description</label>
-                    <textarea class="rounded-md bg-gray-100" cols="30" rows="10" wire:model='task_description' id="description"></textarea>
-                    @error('task_description')
+                    <textarea class="rounded-md bg-gray-100" cols="30" rows="10" wire:model='form.task_description'
+                        id="description"></textarea>
+                    @error('form.task_description')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
