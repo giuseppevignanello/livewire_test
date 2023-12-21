@@ -10,7 +10,7 @@ class Task extends Component
 {
 
     public $tasks = [];
-    public $task_name = '';
+    public $task_title = '';
     public $task_description = '';
 
     public $task_status = 'new';
@@ -29,7 +29,7 @@ class Task extends Component
 
         //add new taks
         $newTask = new ModelsTask([
-            'title' => $this->task_name,
+            'title' => $this->task_title,
             'user_id' => $user->id,
             'description' => $this->task_description,
             'status' => $this->task_status,
@@ -40,7 +40,7 @@ class Task extends Component
         //get the updated tasks list
         $this->tasks = $user->tasks;
         //reset the input
-        $this->task_name = '';
+        $this->task_title = '';
         $this->task_description = '';
         $this->task_status = 'new';
         $this->task_deadline = '';
