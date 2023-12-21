@@ -11,6 +11,8 @@ class Task extends Component
 
     public $tasks = [];
 
+    protected $listeners = ['tasksAdded'];
+
 
     public function mount()
     {
@@ -21,6 +23,17 @@ class Task extends Component
 
     public function render()
     {
-        return view('livewire.task');
+        return view('livewire.task', ['tasks' => $this->getTasks()]);
+    }
+
+    private function getTasks()
+    {
+        $user = Auth::user();
+        $this->tasks = $user->tasks;
+    }
+
+    public function tasksAdded()
+    {
+        $this->tasks = $this->getTasks();
     }
 }

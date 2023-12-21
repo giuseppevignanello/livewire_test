@@ -33,8 +33,8 @@ class TaskCreate extends Component
         ]);
         $newTask->save();
 
-        //get the updated tasks list
-        $this->tasks = $user->tasks;
+        //emit event to Tasks 
+        $this->dispatch('tasksAdded');
         //reset the input
         $this->reset('task_title', 'task_description', 'task_status', 'task_deadline');
     }
