@@ -20,7 +20,7 @@ class TaskForm extends Form
     #[Rule('required')]
     public $task_status = 'new';
 
-    #[Rule('required')]
+    #[Rule('required | after_or_equal:today')]
     public $task_deadline = '';
 
 
