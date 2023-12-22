@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Task as ModelsTask;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Task extends Component
@@ -26,14 +27,10 @@ class Task extends Component
         return view('livewire.task', ['tasks' => $this->getTasks()]);
     }
 
+    #[On('tasksAdded')]
     private function getTasks()
     {
         $user = Auth::user();
         $this->tasks = $user->tasks;
-    }
-
-    public function tasksAdded()
-    {
-        $this->tasks = $this->getTasks();
     }
 }

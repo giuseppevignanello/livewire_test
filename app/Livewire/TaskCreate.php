@@ -18,7 +18,7 @@ class TaskCreate extends Component
         $this->validate();
 
         $this->form->add();
-        //emit event to Tasks 
+        //dispatch event to Tasks 
         $this->dispatch('tasksAdded');
         //reset the input
         $this->form->reset();
